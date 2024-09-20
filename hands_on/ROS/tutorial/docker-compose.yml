@@ -1,0 +1,23 @@
+services:
+  turtlesim_node:
+    container_name: turtlesim_node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    tty: true
+    command: 
+      - "/bin/bash"
+
+  turtle_teleop_key:
+    container_name: turtle_teleop_key
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    command: 
+      - "/bin/bash"
